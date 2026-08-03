@@ -1,0 +1,18 @@
+[package]
+name = "lldpdu"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77"
+description = "Parse and build IEEE 802.1AB LLDP data units."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Scherso/lldpdu"
+readme = "README.md"
+keywords = ["lldp", "802-1AB", "network", "discovery", "parser"]
+categories = ["network-programming", "parser-implementations", "no-std"]
+authors = ["Sam Sporidis <samsporidissoftware@protonmail.com>"]
+
+[features]
+default = ["std"]
+std = []
+
+[dependencies]

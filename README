@@ -1,0 +1,39 @@
+lldpdu
+
+parse and build IEEE 802.1AB LLDP data units
+
+USAGE
+
+     use lldpdu::{frame, ChassisId, Lldpdu, PortId};
+
+     let payload = frame::lldpdu_of(&captured)?;
+     let pdu = Lldpdu::parse(payload)?;
+
+DESCRIPTION
+
+     lldpdu reads and writes LLDP data units as defined in IEEE 802.1AB-2016.
+     Depends on the Rust standard prelude.
+     The crate is no_std.
+     The parser itself borrows from the input and doesn't make copies.
+
+LAYOUT
+
+     tlv      raw type/length/value layer: TlvIter, encoder, type
+              constants (§8.4.1)
+
+     types    typed vocabulary: ChassisId, PortId, SystemCapabilities,
+              ManagementAddress, OrgTlv (§8.5–8.6)
+
+     pdu      Lldpdu, a complete data unit, parsed or under construction
+              (§8.2)
+
+     frame    Ethernet demux: EtherType 0x88CC, the three group
+              addresses, lldpdu_of (§7.1)
+
+SEE ALSO
+
+     IEEE Std 802.1AB-2016
+
+LICENSE
+
+     Apache-2.0
